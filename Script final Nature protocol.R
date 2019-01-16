@@ -48,7 +48,7 @@ all(all_markers %in% panel_fcs$name)
 fcs <- fsApply((fcs_raw[, c(all_markers)]), exprs)
 head(fcs)
 
----------------------------------------------------------------------
+#---------------------------------------------------------------------
 
 # Optional, if you are not using CyTOBANK/MATLAB it's possible to do arcsinh transformation of the channels included for the clustering in R
 # Please, check if the files were correctly exported in FlowJo, sometines files have a scaling bug
@@ -110,7 +110,7 @@ asinh_scale_3000 <- c("CD28")
 cofactor_11 <- 3000
 fcs[,asinh_scale_3000] <- asinh(fcs[,asinh_scale_3000] / cofactor_11)
 
----------------------------------------------------------------------
+#---------------------------------------------------------------------
 
 # Transform the markers to values between 0-1 (Normalization for FlowSOM algorithm)
 library(matrixStats)
