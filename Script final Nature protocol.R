@@ -260,6 +260,11 @@ library(ConsensusClusterPlus)
 codes <- som$map$codes
 plot_outdir <- "consensus_plots"
 
+library(dplyr)
+library(ggrepel)
+library(RColorBrewer)
+library(pheatmap)
+                    
 # Metaclustering K30
 nmc <- 30
 mc <- ConsensusClusterPlus(t(codes), maxK = nmc, reps = 100,
