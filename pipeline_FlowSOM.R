@@ -246,7 +246,7 @@ ggsave(filename = "tSNE_allmarkers.png", plot = plot2,
        scale = 1, width = 10, height = 11, units = c("in"))
 
 
-## Flowsome
+## FlowSOM
 
 library(FlowSOM)
 head(fcs)
@@ -342,7 +342,7 @@ plot_clustering_heatmap_wrapper(fcs = fcs[, lineage_markers],
 
 
 
-# Plot Flowsome 
+# Plot FlowSOM 
 dr$sample_id <- sample_ids[tsne_inds]
 mm <- match(dr$sample_id, md$sample_id)
 dr$condition <- md$condition[mm]
