@@ -442,7 +442,7 @@ pheatmap(median_subset_2, color = color,
 dev.off()
 
 
-# and you count cluster mergin
+# and you count cluster merging
 counts_table <- table(cell_clustering1m, sample_ids)
 props_table <- t(t(counts_table) / colSums(counts_table)) * 100
 counts <- as.data.frame.matrix(counts_table)
