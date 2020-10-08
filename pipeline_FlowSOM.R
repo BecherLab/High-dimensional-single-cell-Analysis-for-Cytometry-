@@ -205,7 +205,7 @@ tsne_expr <- expr[tsne_inds, lineage_markers]
 if(!require(devtools)) install.packages("devtools") 
 
 # In this step, you can eventually run Rtsne multicore If not already installed, use devtools::install_github("RGLab/Rtsne.multicore") <-- not availale for macOS.
-# In the script you should replate Rtsne.multicore for Rtsne
+# In the script you should replate Rtsne.multicore for Rtsne.
 
 library(Rtsne)
 
@@ -213,6 +213,17 @@ set.seed(1234)
 tsne_out <- Rtsne(tsne_expr, dims = 2, perplexity = 100, theta = 0.5, 
                             max_iter = 2000, verbose = T, pca = F, check_duplicates=F)
 
+####Alternative, you can run a UMAP. If not already installed, use install.packages("umap").
+                    
+library(umap)
+
+data_umap <-  umap(tsne_expr, random_state=123, verbose =T)
+
+
+Umap <- as.data.frame(data_umap$layout)
+colnames(Umap) <- c("Umap1", "Umap2")                    
+                    
+                    
 # Plot t-SNE colored by single expression
 dr <- data.frame(tSNE1 = tsne_out$Y[, 1], tSNE2 = tsne_out$Y[, 2],
                  expr[tsne_inds, lineage_markers])
